@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools — Elijah Purcell</title>
+<meta name="description" content="Single-purpose tools I've shipped. Each one is one HTML file, runs in your browser, stores data locally. No accounts, no ads, no algorithm.">
+<meta property="og:title" content="Tools — Elijah Purcell">
+<meta property="og:description" content="Single-purpose tools. One HTML file each. No accounts. No algorithm.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://thebigjah.github.io/tools/">
+<style>
+  :root {
+    --bg: #faf6f0;
+    --bg-alt: #f0e9d8;
+    --ink: #1d1812;
+    --ink-soft: #6b5a44;
+    --ink-faint: #a89880;
+    --accent: #8a6a3a;
+    --accent-light: #c2a173;
+    --border: #e5d9c0;
+    --shadow: 0 2px 8px rgba(29,24,18,0.06);
+    --shadow-hover: 0 4px 16px rgba(29,24,18,0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 1.5rem 1rem;
+  }
+  .container { max-width: 1080px; margin: 0 auto; }
+  header { text-align: center; padding: 3rem 0 3rem; }
+  header h1 {
+    font-family: "Cinzel", Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: var(--ink-soft);
+    font-style: italic;
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+  header .principles {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.05em;
+  }
+  header .principles span {
+    display: inline-block;
+    margin: 0 0.5rem;
+  }
+
+  .section {
+    margin-bottom: 3rem;
+  }
+  .section-head {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.6rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.4rem 1.5rem;
+    box-shadow: var(--shadow);
+    transition: box-shadow 0.15s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+  }
+  .card .name {
+    font-family: Georgia, serif;
+    font-size: 1.25rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+  .card .name a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card .name a:hover { color: var(--ink); }
+  .card .tagline {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 0.85rem;
+  }
+  .card .desc {
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+  .card .footer {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: auto;
+  }
+  .card .footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .card .footer a:hover { color: var(--ink); }
+  .card .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-alt);
+    color: var(--accent);
+    border-radius: 999px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+  }
+  .card .badge.faith { background: #f4ede1; color: var(--accent); }
+  .card .badge.tracker { background: #e8efea; color: #4a7c3d; }
+  .card .badge.fun { background: #eee4d8; color: #a8602e; }
+  .card .badge.utility { background: #e5e8ee; color: #3b6da6; }
+  .card .badge.app { background: #f0e5dc; color: #8c5a3a; }
+
+  footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer p { margin-bottom: 0.4rem; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>Tools</h1>
+  <p>Single-purpose things I've shipped. Each one is one HTML file, runs in your browser, stores data locally.</p>
+  <div class="principles">
+    <span>no accounts</span>&middot;<span>no ads</span>&middot;<span>no algorithm</span>&middot;<span>no cloud</span>
+  </div>
+</header>
+
+<div class="section">
+  <div class="section-head">Faith</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="badge faith">Faith</div>
+      <div class="name"><a href="https://thebigjah.github.io/prayer-journal/">Prayer Journal</a></div>
+      <div class="tagline">a record, not a performance</div>
+      <div class="desc">ACTS-framework daily prayer with 20-verse rotation. Open prayer requests with "praying for N days" counter. Answered-prayer log — the page you scroll when you doubt anything is happening.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/prayer-journal/">Open →</a>
+        <a href="https://github.com/thebigjah/prayer-journal" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge faith">Faith</div>
+      <div class="name"><a href="https://thebigjah.github.io/momentum/">Momentum</a></div>
+      <div class="tagline">one intention a day, witnessed</div>
+      <div class="desc">Set one intention. Mark done or missed at end of day. Share via URL — friend witnesses your intention. Christian-witness ethos: no streak shaming, no leaderboards. 365-day heatmap, daily Bible verse.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/momentum/">Open →</a>
+        <a href="https://github.com/thebigjah/momentum" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge faith">Faith</div>
+      <div class="name"><a href="https://thebigjah.github.io/echo/">Echo</a></div>
+      <div class="tagline">legacy stories, kept whole</div>
+      <div class="desc">Guided 60-question life-story interview for an elderly loved one. Per-question voice recording, audio archive, full-archive ZIP export with photos + audio + story. Renders to a Wikipedia-style life document.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/echo/">Open →</a>
+        <a href="https://github.com/thebigjah/echo" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge faith">Faith</div>
+      <div class="name"><a href="https://thebigjah.github.io/wisdom-prep/">Wisdom Conversation Prep</a></div>
+      <div class="tagline">5-min mentor-call generator</div>
+      <div class="desc">Pick a mentor + topic. Get customized opener, 7 prepared questions, closing move, post-call reflection template. Designed for the wisdom-asking practice — one mentor conversation a month.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/wisdom-prep/">Open →</a>
+        <a href="https://github.com/thebigjah/wisdom-prep" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge faith">Faith</div>
+      <div class="name"><a href="https://thebigjah.github.io/calvinism-test/">Calvinism Self-Assessment</a></div>
+      <div class="tagline">TULIP, point by point</div>
+      <div class="desc">Position-test against the 5 points of Calvinism with theological-neighbor mapping. Get a downloadable result + share button. History saved locally.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/calvinism-test/">Open →</a>
+        <a href="https://github.com/thebigjah/calvinism-test" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">Trackers</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="badge tracker">Tracker</div>
+      <div class="name"><a href="https://thebigjah.github.io/rival/">Rival</a></div>
+      <div class="tagline">the rival is you, last week</div>
+      <div class="desc">Track any metric daily. PR detection, 7-day-vs-prior verdict, sparkline, 365-day GitHub-style heatmap, optional goal line. Self-competition only — no leaderboards, no social.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/rival/">Open →</a>
+        <a href="https://github.com/thebigjah/rival" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge tracker">Tracker</div>
+      <div class="name"><a href="https://thebigjah.github.io/reading-log/">Reading Log</a></div>
+      <div class="tagline">books, kept honest</div>
+      <div class="desc">Personal reading tracker. Three lists (Reading / Finished / Wishlist), 5-star rating, page counts, genre tags, per-year goal tracking with progress. Favorite-authors panel + year-by-month rollup. CSV + JSON export.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/reading-log/">Open →</a>
+        <a href="https://github.com/thebigjah/reading-log" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">Connection</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="badge fun">Connection</div>
+      <div class="name"><a href="https://thebigjah.github.io/hangout/">Steal My Hangout</a></div>
+      <div class="tagline">no more 'idk, what do you want to do'</div>
+      <div class="desc">20 pre-seeded Atlanta-area hangout ideas + roll-the-dice random picker + filter/search + user-add + completion log + share-my-list via URL hash. Map view with Leaflet pins for geocoded ideas.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/hangout/">Open →</a>
+        <a href="https://github.com/thebigjah/hangout" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge fun">Connection</div>
+      <div class="name"><a href="https://thebigjah.github.io/era/">Era</a></div>
+      <div class="tagline">drop into a year, no hindsight</div>
+      <div class="desc">17 hand-curated historical years (1945-2020). Per year: headlines, top music, films, tech, cultural air, a quote. Reads as if the year is happening now — not "looking back." "Year I was 16" personalization.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/era/">Open →</a>
+        <a href="https://github.com/thebigjah/era" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">Build &amp; Learn</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="badge utility">Build</div>
+      <div class="name"><a href="https://thebigjah.github.io/cipher-lab/">Cipher Lab</a></div>
+      <div class="tagline">encode, decode, hide, reveal</div>
+      <div class="desc">Six classical ciphers (Caesar, Atbash, Vigenère, ROT13, Bacon, Rail Fence) — all interactive. Plus a Puzzle Hunt Builder that chains layers + auto-generates solver clues. Bacon "hide in carrier text" generator for steganography hunts.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/cipher-lab/">Open →</a>
+        <a href="https://github.com/thebigjah/cipher-lab" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge utility">Diagnostic</div>
+      <div class="name"><a href="https://thebigjah.github.io/ai-readiness-test/">AI Readiness Test</a></div>
+      <div class="tagline">where's your business actually at</div>
+      <div class="desc">10-question diagnostic for small + mid-market businesses. 4-tier scoring, calibrated next-step recommendations, CTA to consulting.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/ai-readiness-test/">Open →</a>
+        <a href="https://github.com/thebigjah/ai-readiness-test" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge utility">Diagnostic</div>
+      <div class="name"><a href="https://thebigjah.github.io/ai-cost-calculator/">AI Cost Calculator</a></div>
+      <div class="tagline">what AI consulting actually pays back</div>
+      <div class="desc">6 industry presets, 2-step funnel pairs with AI Readiness Test. Quantifies dollars after Readiness Test creates the emotional moment.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/ai-cost-calculator/">Open →</a>
+        <a href="https://github.com/thebigjah/ai-cost-calculator" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge utility">Continuity</div>
+      <div class="name"><a href="https://thebigjah.github.io/ai-will/">AI Will</a></div>
+      <div class="tagline">your business after you're gone</div>
+      <div class="desc">Business continuity interview for elderly SMB owners. 9 sections, ~40 questions. Outputs a printable document that captures decades of tacit knowledge before it's lost.</div>
+      <div class="footer">
+        <a href="https://thebigjah.github.io/ai-will/">Open →</a>
+        <a href="https://github.com/thebigjah/ai-will" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-head">Apps &amp; Sites</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="badge app">App</div>
+      <div class="name"><a href="https://coverage-bice.vercel.app/">Prayer Walk</a></div>
+      <div class="tagline">map every street you've prayed over</div>
+      <div class="desc">Mobile-first prayer walk recorder. GPS heatmap of past coverage colored by recency. Lifetime stats, streak counter, daily scripture, GPX export, JSON backup. Web demo + Android app — Play Store soon.</div>
+      <div class="footer">
+        <a href="https://coverage-bice.vercel.app/">Web →</a>
+        <a href="https://github.com/thebigjah/prayer-walk-mobile" style="color:var(--ink-faint);font-size:0.78rem;">mobile source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge app">App</div>
+      <div class="name"><a href="https://elijahbot-refresh.vercel.app/">ElijahBot Refresh</a></div>
+      <div class="tagline">personal accountability + scheduling chatbot</div>
+      <div class="desc">Habit tracking, daily journal, Bible reading widget, voice dictation, week heatmap, conversation with Claude that pushes back when you flake. Multi-tenant — friends can sign up under their own Google account.</div>
+      <div class="footer">
+        <a href="https://elijahbot-refresh.vercel.app/">Open →</a>
+        <a href="https://github.com/thebigjah/elijahbot-refresh" style="color:var(--ink-faint);font-size:0.78rem;">source</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="badge app">Site</div>
+      <div class="name"><a href="https://purcellventures.co/">Purcell Ventures</a></div>
+      <div class="tagline">AI consulting + automation for small business</div>
+      <div class="desc">The business hub. Consulting, courses, custom tools. Booking, waitlist, chatbot. Mantle field-services site sits under the same parent LLC.</div>
+      <div class="footer">
+        <a href="https://purcellventures.co/">Open →</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Built by <a href="https://purcellventures.co">Elijah Purcell</a> · <a href="https://github.com/thebigjah">github</a></p>
+  <p>Each tool runs entirely in your browser. Nothing leaves your device.</p>
+</footer>
+
+</div>
+</body>
+</html>
