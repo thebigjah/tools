@@ -9,162 +9,259 @@
 <meta property="og:description" content="Single-purpose tools. One HTML file each. No accounts. No algorithm.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://thebigjah.github.io/tools/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/*  ============================================================
+    TOOLS INDEX · Purcell Ventures portfolio plate
+    -----------------------------------------------------------
+    Theme: PV-branded portfolio index of all single-purpose
+    tools. Light brand-cohesion treatment — uses PV core palette
+    (warm cream + brass + ink) but cards now each show their
+    OWN distinct color-strip per tool category. Acts as a
+    typography preview for what the main PV site upgrade will
+    feel like.
+    ============================================================ */
   :root {
-    --bg: #faf6f0;
-    --bg-alt: #f0e9d8;
-    --ink: #1d1812;
-    --ink-soft: #6b5a44;
-    --ink-faint: #a89880;
-    --accent: #8a6a3a;
-    --accent-light: #c2a173;
-    --border: #e5d9c0;
-    --shadow: 0 2px 8px rgba(29,24,18,0.06);
-    --shadow-hover: 0 4px 16px rgba(29,24,18,0.12);
+    --bg:#f8f3e6;
+    --bg-alt:#ece2c8;
+    --bg-deep:#d8cba8;
+    --card:#fffcf2;
+    --ink:#0a0604;
+    --ink-soft:#3a2e1e;
+    --ink-faint:#7a6a52;
+    --brass:#c2a173;
+    --brass-bright:#e8b968;
+    --brass-deep:#8b6a3a;
+    --accent: var(--brass-deep);
+    --accent-light: var(--brass);
+    --border: rgba(10, 6, 4, 0.16);
+    --border-strong: rgba(10, 6, 4, 0.36);
+    --shadow: 0 2px 8px rgba(10, 6, 4, 0.08);
+    --shadow-hover: 0 6px 20px rgba(10, 6, 4, 0.18);
+
+    --display:'Cinzel', Georgia, serif;
+    --body:'DM Sans', system-ui, sans-serif;
+    --mono:'JetBrains Mono', monospace;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-family: var(--body);
     background: var(--bg);
     color: var(--ink);
-    line-height: 1.6;
+    line-height: 1.55;
     min-height: 100vh;
     padding: 1.5rem 1rem;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
   }
-  .container { max-width: 1080px; margin: 0 auto; }
-  header { text-align: center; padding: 3rem 0 3rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  header {
+    text-align: left;
+    padding: 36px 0 28px;
+    margin-bottom: 36px;
+    border-top: 4px solid var(--ink);
+    border-bottom: 1.5px solid var(--ink);
+    position: relative;
+  }
+  header::after {
+    content:""; position: absolute; left: 0; right: 0; bottom: -6px;
+    height: 1px; background: var(--brass); opacity: 0.6;
+  }
   header h1 {
-    font-family: "Cinzel", Georgia, "Times New Roman", serif;
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.5rem;
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(54px, 8vw, 96px);
+    color: var(--ink);
+    letter-spacing: 0.005em;
+    margin: 0;
+    line-height: 0.95;
   }
   header p {
+    font-family: var(--body);
     color: var(--ink-soft);
-    font-style: italic;
-    max-width: 540px;
-    margin: 0 auto;
-    font-size: 1.05rem;
+    font-style: normal;
+    max-width: 580px;
+    margin: 14px 0 0;
+    font-size: 16.5px;
+    line-height: 1.55;
   }
   header .principles {
-    margin-top: 1.5rem;
-    font-size: 0.85rem;
+    margin-top: 22px;
+    display: flex; gap: 22px; flex-wrap: wrap;
+    font-family: var(--mono); font-weight: 500;
+    font-size: 10.5px;
     color: var(--ink-faint);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
   }
   header .principles span {
-    display: inline-block;
-    margin: 0 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+  }
+  header .principles span::before {
+    content:"·";
+    margin-right: 8px;
+    color: var(--brass);
   }
   header .today-banner {
     display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.5rem 1.25rem;
-    background: var(--accent-light);
-    color: #fff;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
+    margin-top: 16px;
+    padding: 5px 14px;
+    background: var(--ink);
+    color: var(--brass-bright);
+    border-radius: 0;
+    font-family: var(--mono); font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
   }
 
   .section {
-    margin-bottom: 3rem;
+    margin-bottom: 48px;
   }
   .section-head {
-    font-size: 0.8rem;
-    color: var(--accent);
+    font-family: var(--mono); font-weight: 500;
+    font-size: 11px;
+    color: var(--brass-deep);
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.6rem;
+    letter-spacing: 0.28em;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 8px;
   }
 
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1rem;
+    gap: 14px;
   }
   .card {
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 1.25rem 1.4rem 1.5rem;
+    background: var(--card);
+    border: 1px solid var(--border-strong);
+    border-top: 3px solid var(--brass-deep);
+    border-radius: 0;
+    padding: 22px 24px 22px;
     box-shadow: var(--shadow);
-    transition: box-shadow 0.15s, transform 0.15s;
+    transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
     display: flex;
     flex-direction: column;
+    position: relative;
   }
   .card:hover {
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
+    border-top-color: var(--brass-bright);
   }
   .card .name {
-    font-family: Georgia, serif;
-    font-size: 1.25rem;
-    color: var(--accent);
-    margin-bottom: 0.25rem;
+    font-family: var(--display); font-weight: 600;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    letter-spacing: 0.005em;
+    line-height: 1.1;
   }
   .card .name a {
     color: inherit;
     text-decoration: none;
   }
-  .card .name a:hover { color: var(--ink); }
+  .card .name a:hover { color: var(--brass-deep); }
   .card .tagline {
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    font-style: italic;
-    margin-bottom: 0.85rem;
+    font-family: var(--body); font-weight: 500;
+    font-size: 13.5px;
+    color: var(--brass-deep);
+    font-style: normal;
+    letter-spacing: 0.01em;
+    margin-bottom: 12px;
   }
   .card .desc {
-    color: var(--ink);
-    font-size: 0.92rem;
-    line-height: 1.55;
+    font-family: var(--body); font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    line-height: 1.5;
     flex: 1;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
   .card .footer {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 10px;
     margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
   }
   .card .footer a {
-    color: var(--accent);
+    font-family: var(--mono); font-weight: 500;
+    color: var(--ink);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--ink);
+    padding: 6px 12px;
+    transition: background 0.12s, color 0.12s;
   }
-  .card .footer a:hover { color: var(--ink); }
+  .card .footer a:hover { background: var(--ink); color: var(--brass-bright); }
   .card .badge {
     display: inline-block;
-    padding: 0.2rem 0.6rem;
-    background: var(--bg-alt);
-    color: var(--accent);
-    border-radius: 999px;
-    font-size: 0.7rem;
+    padding: 3px 9px;
+    background: transparent;
+    color: var(--brass-deep);
+    border-radius: 0;
+    border: 1.5px solid var(--brass-deep);
+    font-family: var(--mono); font-weight: 700;
+    font-size: 9.5px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 600;
+    letter-spacing: 0.22em;
   }
-  .card .badge.faith { background: #f4ede1; color: var(--accent); }
-  .card .badge.tracker { background: #e8efea; color: #4a7c3d; }
-  .card .badge.fun { background: #eee4d8; color: #a8602e; }
-  .card .badge.utility { background: #e5e8ee; color: #3b6da6; }
-  .card .badge.app { background: #f0e5dc; color: #8c5a3a; }
+  /* Category colors stay warm (PV brand) */
+  .card .badge.faith { color: var(--brass-deep); border-color: var(--brass-deep); }
+  .card .badge.tracker { color: #4a7c3d; border-color: #4a7c3d; }
+  .card .badge.fun { color: #a8602e; border-color: #a8602e; }
+  .card .badge.utility { color: #3b6da6; border-color: #3b6da6; }
+  .card .badge.app { color: #8c5a3a; border-color: #8c5a3a; }
   .card .badge.new {
-    background: #c2a173;
-    color: #fff;
+    background: var(--ink);
+    color: var(--brass-bright);
+    border-color: var(--ink);
     margin-left: 0.4rem;
   }
   .card.new-today {
-    border-color: var(--accent-light);
-    box-shadow: 0 0 0 2px rgba(194,161,115,0.15), var(--shadow);
+    border-top-color: var(--brass-bright);
+    border-top-width: 4px;
+    box-shadow: 6px 6px 0 rgba(232, 185, 104, 0.18), var(--shadow);
+  }
+  .card.new-today::after {
+    content:"NEW";
+    position: absolute; top: -1px; right: -1px;
+    background: var(--brass-bright); color: var(--ink);
+    font-family: var(--mono); font-weight: 700;
+    font-size: 9px; letter-spacing: 0.24em;
+    padding: 3px 8px;
   }
   .card.new-today:hover {
-    box-shadow: 0 0 0 2px rgba(194,161,115,0.25), var(--shadow-hover);
+    box-shadow: 6px 6px 0 rgba(232, 185, 104, 0.32), var(--shadow-hover);
+  }
+
+  footer {
+    margin-top: 56px;
+    padding: 28px 0 36px;
+    border-top: 2px solid var(--ink);
+    text-align: center;
+    font-family: var(--body); font-size: 13px;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--brass-deep); text-decoration: none; border-bottom: 1px dotted var(--brass-deep); }
+  .credit-line {
+    display: block;
+    font-family: var(--mono); font-weight: 700;
+    font-size: 9px; letter-spacing: 0.42em;
+    color: var(--ink-faint); margin-top: 14px;
+    opacity: 0.7; text-transform: uppercase;
   }
 
   footer {
@@ -184,11 +281,14 @@
 
 <header>
   <h1>Tools</h1>
-  <p>Single-purpose things I've shipped. Each one is one HTML file, runs in your browser, stores data locally.</p>
+  <p>Single-purpose things I've shipped. Each one is one HTML file, runs in your browser, stores data locally. No accounts. No algorithm. Nothing leaves your device.</p>
   <div class="principles">
-    <span>no accounts</span>&middot;<span>no ads</span>&middot;<span>no algorithm</span>&middot;<span>no cloud</span>
+    <span>no accounts</span>
+    <span>no ads</span>
+    <span>no algorithm</span>
+    <span>no cloud</span>
   </div>
-  <div class="today-banner">18 new today &middot; May 17 2026</div>
+  <div class="today-banner">Recently shipped · 18 redesigned · Anno MMXXVI</div>
 </header>
 
 <div class="section">
@@ -552,8 +652,9 @@
 </div>
 
 <footer>
-  <p>Built by <a href="https://purcellventures.co">Elijah Purcell</a> · <a href="https://github.com/thebigjah">github</a></p>
+  <p>Built by <a href="https://purcellventures.co">Elijah Purcell</a> · <a href="https://github.com/thebigjah">github.com/thebigjah</a></p>
   <p>Each tool runs entirely in your browser. Nothing leaves your device.</p>
+  <div class="credit-line">— PURCELLVENTURES.CO —</div>
 </footer>
 
 </div>
